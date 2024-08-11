@@ -91,3 +91,28 @@ body, html {
 .mg{
   margin-left: 790px;
 }
+
+.add-idea-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; 
+}
+
+.add-idea-btn {
+  width: 100%; 
+  max-width: 100%; 
+  background-color: transparent;
+  border: 2px solid #00B6D2;
+  color: #bbb;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+}
+
+.add-idea-btn:hover {
+  background-color: #00B6D2;
+  color: #fff;
+}

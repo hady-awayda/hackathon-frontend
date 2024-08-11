@@ -37,6 +37,9 @@ const Dashboard = ({ ideas = dummyIdeas, deleteIdea }) => {
           </div>
         ))}
       </div>
+      <div className="add-idea-wrapper">
+        <button className="add-idea-btn">+ New Idea</button>
+      </div>
     </div>
   );
 };
