@@ -5,6 +5,7 @@ import Signup from "./pages/signup/Signup";
 import Layout from "./pages/components/layout/Layout";
 import { Provider } from "react-redux";
 import store from "../src/redux/store"; // Adjust the path based on your project structure
+import Dashboard from './pages/dashboard/Dashboard';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="dashboard" element={<Dashboard />} />
             <Route path="home" element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
