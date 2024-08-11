@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2E2E2E;
+    padding: 20px 70px;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+  }
+  
+  .back-link a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .back-link a:hover {
+    color: #00C2CB;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #FFFFFF;
+  }
+  
+  .logo img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+  

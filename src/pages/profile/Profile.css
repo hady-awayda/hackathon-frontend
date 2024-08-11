@@ -1,0 +1,238 @@
+body {
+    background-color: #2E2E2E;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+  }
+  
+  .profile-page {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    margin: 0 auto;
+  }
+  
+  .profile-container,
+  .payment-container {
+    padding: 0 30px;
+    border-radius: 10px;
+    width: 48%;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+  }
+  
+  .profile-picture {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-picture img {
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .profile-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .buttons-inside {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .upload-btn,
+  .remove-btn,
+  .premium-btn {
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    background-color: transparent;
+  }
+  
+  .upload-btn {
+    border-color: #1DA1F2;
+    color: #1DA1F2;
+  }
+  
+  .remove-btn {
+    border-color: #FF4136;
+    color: #FF4136;
+  }
+  
+  .premium-btn {
+    border-color: #FF851B;
+    color: #FF851B;
+  }
+  
+  .upload-btn:hover,
+  .remove-btn:hover,
+  .premium-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    background-color: transparent;
+    border: 2px solid #888;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 0.9em;
+  }
+  
+  input[type="text"]::placeholder,
+  input[type="email"]::placeholder,
+  input[type="password"]::placeholder {
+    color: #888;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #1DA1F2;
+    border: #00c2cb solid 2px;
+    outline: none;
+  }
+  
+  .card-type {
+    display: flex;
+    width: 100%;
+    margin-bottom: 28px;
+    margin-top: 10px;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .card-type-option {
+    border: 2px solid #888;
+    width: 50%;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out icon/text and circle */
+    transition: border-color 0.3s ease, color 0.3s ease;
+    position: relative;
+  }
+  
+  .card-type-option .circle {
+    width: 8px; /* Smaller size */
+    height: 8px; /* Smaller size */
+    border: 2px solid #888;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .card-type-option.selected .circle {
+    background-color: #00c2cb;
+    border-color: #00c2cb;
+  }
+  
+  .card-type-option.selected {
+    border-color: #00c2cb;
+    color: #00c2cb;
+  }
+  
+  .card-type-option i {
+    margin-right: 8px;
+  }
+  
+  .card-type-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .apply-changes-btn {
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: auto;
+    background-color: #00C2CB;
+    color: #FFFFFF;
+    border: 1px solid #00C2CB;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .clear-payment-btn {
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: auto;
+    background-color: transparent;
+    color: #FFFFFF;
+    border: none;
+    text-align: center;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .apply-changes-btn:hover {
+    background-color: #00A5B5;
+  }
+  
+  .clear-payment-btn:hover {
+    color: #FF4136;
+    border: 1px solid #FF4136;
+  }
+  
+  @media (max-width: 768px) {
+    .profile-page {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .profile-container,
+    .payment-container {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .button-container {
+      flex-direction: column;
+    }
+  
+    .apply-changes-btn,
+    .clear-payment-btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  
