@@ -1,7 +1,15 @@
-.App {
-  text-align: center;
+/* Override DaisyUI background color */
+body, html {
+  background-color: #292929 !important;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
+.App {
+  background-color: #292929 !important;
+  min-height: 100vh;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

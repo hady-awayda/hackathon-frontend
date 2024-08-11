@@ -1,45 +1,93 @@
-.idea-list h2 {
-    margin-bottom: 20px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 15px;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #333;
-  }
-  
-  td {
-    background-color: #2e2e2e;
-  }
-  
-  .success {
-    color: green;
-  }
-  
-  .warning {
-    color: yellow;
-  }
-  
-  .danger {
-    color: red;
-  }
-  
-  .delete-btn {
-    background-color: transparent;
-    border: none;
-    color: red;
-    cursor: pointer;
-  }
-  
-  .delete-btn:hover {
-    color: darkred;
-  }
-  
+body, html {
+  background-color: #292929 !important;
+}
+
+.idea-list {
+  padding: 20px;
+  margin: 0 40px; 
+}
+
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.table-header {
+  display: flex;
+  gap: 10px;
+  color: #bbb;
+  font-weight: 600;
+}
+
+.idea-col-header {
+  padding: 10px; 
+  background-color: transparent; 
+  text-align: left; 
+}
+
+.idea-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.idea-col {
+  padding: 10px;
+  background-color: #2e2e2e;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  text-align: left;
+}
+
+.idea-col.idea-name-col {
+  flex: 2;
+}
+
+.idea-col.success-rate-col {
+  width: 100px; 
+  text-align: center; 
+}
+
+.idea-col.tips-col {
+  flex: 1;
+}
+
+.idea-col:hover {
+  border: 1px solid #00B6D2;
+}
+
+.text-green-500 {
+  color: #22c55e;
+}
+
+.text-yellow-500 {
+  color: #eab308;
+}
+
+.text-red-500 {
+  color: #ef4444;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ff0000;
+  transition: color 0.3s ease;
+  padding: 0;
+  margin: 0; 
+}
+
+.delete-btn:hover {
+  color: #ff4d4d;
+}
+
+.bg {
+  background-color: #292929;
+}
+
+.mg{
+  margin-left: 790px;
+}
