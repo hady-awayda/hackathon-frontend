@@ -226,6 +226,7 @@ const Profile = () => {
           </form>
         </div>
       </div>
+      <br />
     </div>
   );
 };
