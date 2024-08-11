@@ -1,11 +1,12 @@
 import React from "react";
 import "./Header.css";
+import logo from "../../../assets/logo.png"; // Corrected relative path
 
 const Header = () => {
   return (
     <header className="navbar">
       <div className="logo">
-        <img src="https://via.placeholder.com/50x50" alt="Logo" />
+        <img src={logo} alt="Logo" />
         <span>Data Bar</span>
       </div>
       <nav className="nav-links">
