@@ -1,11 +1,15 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
+import "./Layout.css";
 
 const Layout = () => {
   return (
-    <div>
-      {/* Add any common components like a header or sidebar here */}
-      <Outlet /> {/* This is where the child routes will render */}
+    <div className="layout-container">
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   );
 };
