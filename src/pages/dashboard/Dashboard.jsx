@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {jwtDecode} from 'jwt-decode'; 
+import {jwtDecode} from 'jwt-decode';
 import './dashboard.css';
 import Modal from '../components/modal/Modal.jsx';
 
@@ -36,11 +36,12 @@ const Dashboard = () => {
     const token = localStorage.getItem('token');
     const decodedToken = jwtDecode(token); 
     const userEmail = decodedToken.email; 
+    const apiUrl = process.env.REACT_APP_API_URL; 
 
     try {
       const { ideaName, ...apiData } = formData;
 
-      const response = await fetch('http://127.0.0.1:8000/api/v1/predict/random_forest_classifier', {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
