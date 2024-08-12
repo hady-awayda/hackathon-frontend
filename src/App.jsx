@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import store from "../src/data/redux/store";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Signup from "./pages/signup/Signup";
-import Graph from "./pages/graph/Graph";
+import Graph from "./pages/components/graph/Graph";
 
 function App() {
   return (

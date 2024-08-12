@@ -1,0 +1,42 @@
+.graph-container {
+  text-align: center;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box {
+  width: 45%;
+}
+.header {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.text {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: white;
+  text-align: left;
+  width: 100%;
+}
+
+.graphs-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.highlight-blue {
+  color: #00b6d2;
+}
+.inclination1 {
+  transform: rotate(30deg);
+}
+.inclination2 {
+  transform: rotate(-30deg);
+}
