@@ -49,7 +49,7 @@ const Signup = () => {
           <Button
             onclick={handleonclick}
             type="button"
-            className="signup-btn"
+            className="signup-button"
             ariaLabel="Login"
           >
             Login
