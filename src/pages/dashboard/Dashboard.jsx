@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './dashboard.css';
 import Modal from '../components/modal/Modal.jsx';
 
-const dummyIdeas = [
-  { name: 'Idea 1', successRate: 98, tips: 'Keep it up!' },
-  { name: 'Idea 2', successRate: 32, tips: 'Need New Idea' },
-  { name: 'Idea 3', successRate: 65, tips: 'Need more Budget' },
-  { name: 'Idea 4', successRate: 65, tips: 'Need more Budget' },
-  { name: 'Idea 5', successRate: 65, tips: 'Need more Budget' },
-  { name: 'Idea 6', successRate: 65, tips: 'Need more Budget' },
-  { name: 'Idea 7', successRate: 65, tips: 'Need more Budget' },
-];
-
-const Dashboard = ({ ideas = dummyIdeas, deleteIdea }) => {
+const Dashboard = () => {
+  const [ideas, setIdeas] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedIdea, setSelectedIdea] = useState(null);
+
+  // Fetch ideas from local storage on component mount
+  useEffect(() => {
+    const storedIdeas = JSON.parse(localStorage.getItem('ideas')) || [];
+    setIdeas(storedIdeas);
+  }, []);
 
   const handleIdeaClick = (idea) => {
     setSelectedIdea(idea);
@@ -31,25 +28,56 @@ const Dashboard = ({ ideas = dummyIdeas, deleteIdea }) => {
     setSelectedIdea(null);
   };
 
-  const handleSaveIdea = (formData) => {
-    const token = localStorage.getItem('token'); // Retrieve the token from local storage
+  const handleSaveIdea = async (formData) => {
+    const token = localStorage.getItem('token');
 
-    fetch('http://127.0.0.1:8000/api/v1/predict/random_forest_classifier', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
-      },
-      body: JSON.stringify(formData),
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-        setShowModal(false);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
+    try {
+      // Create a copy of formData and exclude the ideaName
+      const { ideaName, ...apiData } = formData;
+
+      const response = await fetch('http://127.0.0.1:8000/api/v1/predict/random_forest_classifier', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify(apiData),
       });
+
+      const data = await response.json();
+
+      const successRate = data.prediction[0];
+      const tips = data.prediction[1].join(' ');
+
+      const newIdea = {
+        name: ideaName,
+        category: formData.category,
+        size: formData.size,
+        type: formData.type,
+        price: formData.price,
+        content_rating: formData.content_rating,
+        genres: formData.genres,
+        current_ver: formData.current_ver,
+        android_ver: formData.android_ver,
+        sentiment: formData.sentiment,
+        successRate: successRate || 0,
+        tips: tips || 'No tips available',
+      };
+
+      const updatedIdeas = [...ideas, newIdea];
+      setIdeas(updatedIdeas);
+      localStorage.setItem('ideas', JSON.stringify(updatedIdeas));
+
+      setShowModal(false);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const handleDeleteIdea = (index) => {
+    const updatedIdeas = ideas.filter((_, i) => i !== index);
+    setIdeas(updatedIdeas);
+    localStorage.setItem('ideas', JSON.stringify(updatedIdeas));
   };
 
   return (
@@ -75,7 +103,7 @@ const Dashboard = ({ ideas = dummyIdeas, deleteIdea }) => {
             </div>
             <div className="idea-col tips-col">{idea.tips}</div>
             <div>
-              <button onClick={() => deleteIdea ? deleteIdea(index) : null} className="delete-btn">🗑</button>
+              <button onClick={() => handleDeleteIdea(index)} className="delete-btn">🗑</button>
             </div>
           </div>
         ))}
