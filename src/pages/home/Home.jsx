@@ -1,5 +1,5 @@
 import React from "react";
-import LottieAnimation from "../components/animations/LottieAnimation";
+import LottieAnimation from "../components/animations/LottieAnimation.jsx";
 import "./Home.css";
 
 const Home = () => {
@@ -20,7 +20,6 @@ const Home = () => {
           <div className="image-placeholder">Picture</div>
         </div>
       </section>
-      
     </div>
   );
 };
