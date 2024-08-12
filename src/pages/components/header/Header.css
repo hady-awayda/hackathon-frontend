@@ -36,12 +36,19 @@
   cursor: pointer;
 }
 
-.auth-buttons .login {
+.auth-buttons .login,
+.auth-buttons .logout { /* Adding logout with the same styling as login */
   margin-right: 20px;
   text-decoration: none;
   font-size: 18px;
   color: #ffffff;
   transition: color 0.3s ease;
+}
+
+.auth-buttons .login:hover,
+.auth-buttons .logout:hover {
+  color: #00d1ff;
+  cursor: pointer;
 }
 
 .auth-buttons .signup {
@@ -57,8 +64,4 @@
 .auth-buttons .signup:hover {
   background-color: #00a5c8;
   cursor: pointer;
-}
-
-.login:hover{
-cursor: pointer;
 }

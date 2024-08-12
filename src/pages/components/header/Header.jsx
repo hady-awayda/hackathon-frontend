@@ -5,47 +5,64 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
-  const handlePricing = () =>{
-    navigate("/pricing");
-  }
   
-  const handleDashboard = () =>{
+  const token = localStorage.getItem("token");
+
+  const handlePricing = () => {
+    navigate("/pricing");
+  };
+  
+  const handleDashboard = () => {
     navigate("/dashboard");
-  }
+  };
 
-  const handlepProfile = () =>{
+  const handleProfile = () => {
     navigate("/profile");
-  }
+  };
 
-  const handleLogin = () =>{
+  const handleLogin = () => {
     navigate("/login");
-  }
+  };
 
-  const handleSignup = () =>{
+  const handleSignup = () => {
     navigate("/signup");
-  }
+  };
 
-  const handlehome = () =>{
+  const handleHome = () => {
     navigate("/home");
-  }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <header className="navbar">
-      <div className="logo">
+      <div className="logo" onClick={handleHome}>
         <img src={logo} alt="Logo" />
-        <span onClick={handlehome} className="databar">Data Bar</span>
+        <span className="databar">Data Bar</span>
       </div>
       <nav className="nav-links">
         <a onClick={handlePricing}>Pricing</a>
         <a onClick={handleDashboard}>Dashboard</a>
-        <a onClick={handlepProfile}>Profile</a>
+        <a onClick={handleProfile}>Profile</a>
       </nav>
       <div className="auth-buttons">
-        <a onClick={handleLogin} className="login">
-          Login
-        </a>
-        <a onClick={handleSignup} className="signup">
-          Sign Up
-        </a>
+        {token ? (
+          <a onClick={handleLogout} className="logout">
+            Logout
+          </a>
+        ) : (
+          <>
+            <a onClick={handleLogin} className="login">
+              Login
+            </a>
+            <a onClick={handleSignup} className="signup">
+              Sign Up
+            </a>
+          </>
+        )}
       </div>
     </header>
   );
