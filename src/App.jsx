@@ -13,7 +13,7 @@ import Graph from "./pages/components/graph/Graph";
 import LogoAnimation from "./pages/components/booking/LogoAnimation";
 import StreamlitPage from "./pages/dashboard/StreamlitPage";
 import ProtectedRoute from "./pages/components/protectedRoute";
-import AuthenticatedRoute from "./pages/components/authenticatedRoute"; // Import the AuthenticatedRoute component
+import AuthenticatedRoute from "./pages/components/AuthenticatedRoute";
 
 function App() {
   return (
@@ -34,14 +34,7 @@ function App() {
                 </AuthenticatedRoute>
               }
             />
-            <Route
-              path="graph"
-              element={
-                <AuthenticatedRoute>
-                  <Graph />
-                </AuthenticatedRoute>
-              }
-            />
+            <Route path="graph" element={<Graph />} />
             <Route
               path="paiduserdashboard"
               element={
@@ -50,14 +43,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
-              path="pricing"
-              element={
-                <AuthenticatedRoute>
-                  <PricingPage />
-                </AuthenticatedRoute>
-              }
-            />
+            <Route path="pricing" element={<PricingPage />} />
             <Route
               path="profile"
               element={
@@ -66,14 +52,7 @@ function App() {
                 </AuthenticatedRoute>
               }
             />
-            <Route
-              path="/streamlit"
-              element={
-                <AuthenticatedRoute>
-                  <StreamlitPage />
-                </AuthenticatedRoute>
-              }
-            />
+            <Route path="/streamlit" element={<StreamlitPage />} />
           </Route>
         </Routes>
       </Router>

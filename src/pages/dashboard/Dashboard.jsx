@@ -82,7 +82,7 @@ const Dashboard = () => {
 
   return (
     <div className="idea-list h-screen bg">
-      <h2 className="text-white text-3xl mb-6">Welcome back Mohammad</h2>
+      <h2 className="text-white text-3xl mb-6">Welcome back</h2>
       <div className="table-wrapper">
         <div className="table-header">
           <div className="idea-col-header idea-name-col">Idea Name</div>

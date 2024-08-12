@@ -1,7 +1,12 @@
 import React from 'react';
 import './PricingPage.css';
+import { useNavigate } from 'react-router-dom';
 
 const PricingPage = () => {
+  const navigate = useNavigate();
+  const handleClickFree = () =>{
+    navigate('/login');
+  }
   return (
     <div className="pricing-page">
       <div className="pricing-content">
@@ -21,7 +26,7 @@ const PricingPage = () => {
               <li><span className="cross">✖</span></li>
               <li><span className="cross">✖</span></li>
             </ul>
-            <button className="continue-btn">Continue with Free Account</button>
+            <button className="continue-btn" onClick={handleClickFree}>Continue with Free Account</button>
           </div>
           <div className="pricing-card premium">
             <h3>Premium</h3>

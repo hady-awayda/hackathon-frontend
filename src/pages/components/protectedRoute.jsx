@@ -19,7 +19,7 @@ const ProtectedRoute = ({ children, requiredRole }) => {
     
     if (userRole !== requiredRole) {
       console.log(`User does not have the required role: ${requiredRole}, redirecting to home.`);
-      return <Navigate to="/" />;
+      return <Navigate to="/pricing" />;
     }
   } catch (error) {
     console.error('Error decoding token:', error);

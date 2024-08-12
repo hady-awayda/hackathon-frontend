@@ -33,7 +33,7 @@ const Header = () => {
   };
   const handlePaidDashboard = () => {
     navigate("/paiduserdashboard");
-  };
+  };    
 
   const handleLogout = () => {
     localStorage.removeItem("token");
