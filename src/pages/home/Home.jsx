@@ -1,6 +1,7 @@
 import React from "react";
 import LottieAnimation from "../components/animations/LottieAnimation.jsx";
 import "./Home.css";
+import Graph from "../components/graph/Graph.jsx";
 
 const Home = () => {
   return (
@@ -21,7 +22,7 @@ const Home = () => {
           <button className="learn-more-btn">Learn More</button>
         </div>
         <div className="about-image">
-          <div className="image-placeholder">Picture</div>
+          <Graph />
         </div>
       </section>
     </div>

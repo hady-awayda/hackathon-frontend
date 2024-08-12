@@ -1,5 +1,6 @@
 /* Override DaisyUI background color */
-body, html {
+body,
+html {
   background-color: #292929 !important;
   min-height: 100vh;
   margin: 0;
@@ -45,9 +46,9 @@ body, html {
   }
 }
 
-.primary-bg {
+/* .primary-bg {
   background-color: #00b6d2;
-}
+} */
 
 .gray-bg {
   background-color: #989898;
@@ -55,4 +56,8 @@ body, html {
 
 .white-bg {
   background-color: #ffffff;
+}
+
+.white-text {
+  color: white;
 }
