@@ -3,6 +3,7 @@ import './Modal.css';
 
 const Modal = ({ show, onClose, onSave, idea }) => {
   const [formData, setFormData] = useState({
+    ideaName: idea?.name || '', // Added ideaName field
     category: idea?.category || '',
     size: idea?.size || '',
     type: idea?.type || '',
@@ -30,6 +31,16 @@ const Modal = ({ show, onClose, onSave, idea }) => {
         <button className="modal-close-btn" onClick={onClose}>✖</button>
         <h2 className="modal-title">Details</h2>
         <form>
+          <div className="form-group">
+            <label>Idea Name</label>
+            <input
+              type="text"
+              name="ideaName"
+              placeholder="Enter idea name"
+              value={formData.ideaName}
+              onChange={handleChange}
+            />
+          </div>
           <div className="form-group-row">
             <div className="form-group">
               <label>Category</label>
