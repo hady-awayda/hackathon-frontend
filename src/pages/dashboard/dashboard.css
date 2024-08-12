@@ -21,9 +21,15 @@ body, html {
 }
 
 .idea-col-header {
-  padding: 10px; 
   background-color: transparent; 
-  text-align: left; 
+  text-align: left;
+  flex: 1;
+  padding: 0; 
+  margin: 0; 
+}
+
+.idea-col-header:last-child {
+  flex: 0; 
 }
 
 .idea-row {
@@ -38,18 +44,24 @@ body, html {
   border-radius: 8px;
   transition: border-color 0.3s ease;
   text-align: left;
+  color: #a6adbb;
+  flex: 1;
 }
 
-.idea-col.idea-name-col {
+.idea-col.idea-name-col,
+.idea-col-header.idea-name-col {
   flex: 2;
 }
 
-.idea-col.success-rate-col {
+.idea-col.success-rate-col,
+.idea-col-header.success-rate-col {
   width: 100px; 
-  text-align: center; 
+  text-align: center;
+  flex: 0 0 100px;
 }
 
-.idea-col.tips-col {
+.idea-col.tips-col,
+.idea-col-header.tips-col {
   flex: 1;
 }
 
@@ -78,6 +90,7 @@ body, html {
   transition: color 0.3s ease;
   padding: 0;
   margin: 0; 
+  flex: 0;
 }
 
 .delete-btn:hover {
@@ -86,10 +99,6 @@ body, html {
 
 .bg {
   background-color: #292929;
-}
-
-.mg{
-  margin-left: 790px;
 }
 
 .add-idea-wrapper {
@@ -117,6 +126,6 @@ body, html {
   color: #fff;
 }
 
-.databar:hover{
+.databar:hover {
   cursor: pointer;
 }
