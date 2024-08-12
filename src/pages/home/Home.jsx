@@ -8,11 +8,15 @@ const Home = () => {
       <LottieAnimation />
       <section className="about-section">
         <div className="about-text">
-          <h2>About us</h2>
+          <h2>About Us</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur. Montes ultricies cras tellus
-            blandit augue mi sit. Et ac tincidunt urna sed elit eleifend.
-            Sagittis mauris non ut neque sed. Quam proin tempor in enim viverra.
+            At Data Bar, we are dedicated to empowering businesses and
+            individuals with insightful analytics that drive informed decisions.
+            Our platform offers cutting-edge data visualization and management
+            tools designed to make complex information accessible and
+            actionable. Whether you're looking to optimize your operations or
+            explore new opportunities, Data Bar provides the clarity and support
+            you need to thrive in an increasingly data-driven world.
           </p>
           <button className="learn-more-btn">Learn More</button>
         </div>
