@@ -69,10 +69,10 @@ const Signup = () => {
         <form onSubmit={handleSubmit}>
           <Input
             type="text"
-            id="username"
-            name="username"
+            id="name"
+            name="name"
             placeholder="Create a username"
-            value={formData.username}
+            value={formData.name}
             onChange={handleChange}
             ariaLabel="Username"
             icon={faUser}
