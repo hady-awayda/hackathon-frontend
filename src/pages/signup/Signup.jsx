@@ -75,7 +75,6 @@ const Signup = () => {
             value={formData.username}
             onChange={handleChange}
             ariaLabel="Username"
-            icon={faUser}
           />
           <Input
             type="email"
@@ -85,7 +84,6 @@ const Signup = () => {
             value={formData.email}
             onChange={handleChange}
             ariaLabel="Email"
-            icon={faEnvelope}
           />
           <Input
             type="password"
@@ -95,7 +93,6 @@ const Signup = () => {
             value={formData.password}
             onChange={handleChange}
             ariaLabel="Password"
-            icon={faLock}
           />
           <Button
             type="submit"

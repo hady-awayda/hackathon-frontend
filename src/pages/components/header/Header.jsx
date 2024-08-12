@@ -31,6 +31,9 @@ const Header = () => {
   const handleHome = () => {
     navigate("/home");
   };
+  const handlePaidDashboard = () => {
+    navigate("/paiduserdashboard");
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -45,6 +48,7 @@ const Header = () => {
       </div>
       <nav className="nav-links">
         <a onClick={handlePricing}>Pricing</a>
+        <a onClick={handlePaidDashboard}>Paid Dashboard</a>
         <a onClick={handleDashboard}>Dashboard</a>
         <a onClick={handleProfile}>Profile</a>
       </nav>

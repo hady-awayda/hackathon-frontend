@@ -80,7 +80,6 @@ const Login = () => {
             value={formData.email}
             onChange={handleChange}
             ariaLabel="Email"
-            icon={faEnvelope}
           />
           <Input
             type="password"
@@ -90,7 +89,6 @@ const Login = () => {
             value={formData.password}
             onChange={handleChange}
             ariaLabel="Password"
-            icon={faLock}
           />
           <Button
             type="submit"
