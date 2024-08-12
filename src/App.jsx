@@ -7,6 +7,9 @@ import store from "../src/data/redux/store";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Signup from "./pages/signup/Signup";
 import PaidFeatureDashboard from "./pages/dashboard/PaidFeatureDashboard";
+import StreamlitPage from "./pages/dashboard/StreamlitPage";
+import ProtectedRoute from "./pages/components/protectedRoute";
+// Import the ProtectedRoute component
 
 function App() {
   return (
@@ -19,7 +22,11 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
             <Route path="dashboard" element={<Dashboard />} />
-            <Route path="paiduserdashboard" element={<PaidFeatureDashboard />} />
+            <Route
+              path="paiduserdashboard"
+              element={<PaidFeatureDashboard />}
+            />
+            <Route path="/streamlit" element={<StreamlitPage />} />
           </Route>
         </Routes>
       </Router>

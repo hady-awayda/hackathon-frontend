@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Updated import
 import './dashboard.css';
 import PaidUserModal from '../components/modal/PaidUserModal.jsx';
 
@@ -15,13 +16,22 @@ const PaidFeatureDashboard = () => {
     average_sentiment_subjectivity: '',
   });
 
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+
+  // Load saved results from local storage
+  useEffect(() => {
+    const storedResult = JSON.parse(localStorage.getItem('paidUserResult'));
+    if (storedResult) {
+      setResult(storedResult);
+    }
+  }, []);
+
   const handleAddNewIdea = () => {
     setShowModal(true);
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
-    setResult(null);
   };
 
   const handleSaveIdea = () => {
@@ -38,6 +48,7 @@ const PaidFeatureDashboard = () => {
       .then(response => response.json())
       .then(data => {
         setResult(data);
+        localStorage.setItem('paidUserResult', JSON.stringify(data));
         setShowModal(false);
       })
       .catch((error) => {
@@ -49,6 +60,10 @@ const PaidFeatureDashboard = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleDetailsClick = () => {
+    navigate('/streamlit', { state: { data: result } }); // Use navigate instead of history.push
+  };
+
   return (
     <div className="idea-list h-screen bg">
       <h2 className="text-white text-3xl mb-6">Welcome back, Paid User!</h2>
@@ -56,20 +71,29 @@ const PaidFeatureDashboard = () => {
         <button className="add-idea-btn" onClick={handleAddNewIdea}>+ Submit New Idea</button>
       </div>
       {result && (
-        <div className="result">
-          <h3>Similar Apps:</h3>
-          <ul>
-            {result.similar_apps.map((app, index) => (
-              <li key={index}>
-                <strong>{app.app}</strong> - Rating: {app.rating}, Reviews: {app.reviews}, Installs: {app.installs}
-              </li>
-            ))}
-          </ul>
-          <h4>Aggregated Data:</h4>
-          <p>Average Rating: {result.aggregation.mean.rating}</p>
-          <p>Average Reviews: {result.aggregation.mean.reviews}</p>
-          <p>Average Size: {result.aggregation.mean.size} MB</p>
-          <p>Average Installs: {result.aggregation.mean.installs}</p>
+        <div className="result mt-8 p-6 bg-gray-800 text-white rounded-lg shadow-lg">
+          <h3 className="text-2xl font-semibold mb-4">Similar Apps:</h3>
+          {result.similar_apps && result.similar_apps.length > 0 ? (
+            <ul className="list-disc list-inside mb-6">
+              {result.similar_apps.map((app, index) => (
+                <li key={index}>
+                  <strong>{app.app}</strong> - Rating: {app.rating}, Reviews: {app.reviews}, Installs: {app.installs}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No similar apps found.</p>
+          )}
+          <button className="details-btn" onClick={handleDetailsClick}>View All Details in Streamlit</button>
+          {result.aggregation && result.aggregation.mean && (
+            <div className="aggregated-data">
+              <h4 className="text-xl font-semibold">Aggregated Data:</h4>
+              <p>Average Rating: {result.aggregation.mean.rating}</p>
+              <p>Average Reviews: {result.aggregation.mean.reviews}</p>
+              <p>Average Size: {result.aggregation.mean.size} MB</p>
+              <p>Average Installs: {result.aggregation.mean.installs}</p>
+            </div>
+          )}
         </div>
       )}
       <PaidUserModal 
