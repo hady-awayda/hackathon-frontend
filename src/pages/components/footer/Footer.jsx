@@ -6,13 +6,15 @@ import {
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons"; // Use 'faXTwitter' for X icon
 import "./Footer.css";
+import logo from "../../../assets/logo.png";
+
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-logo">
-          <img src="https://via.placeholder.com/50x50" alt="Logo" />
+          <img src={logo} alt="Logo" />
           <p>Empowering your decisions with data-driven insights.</p>
         </div>
         <div className="footer-links">
