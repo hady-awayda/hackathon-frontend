@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Profile.css";
-import Header from "../../components/header/Header";
 
 const Profile = () => {
   const [profile, setProfile] = useState({
@@ -45,7 +44,6 @@ const Profile = () => {
 
   return (
     <div>
-      <Header/>
       <div className="profile-page">
         <div className="profile-container">
           <h2>Profile</h2>

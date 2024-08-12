@@ -8,6 +8,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Signup from "./pages/signup/Signup";
 import PaidFeatureDashboard from "./pages/dashboard/PaidFeatureDashboard";
 import PricingPage from "./pages/pricing/PricingPage";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="paiduserdashboard" element={<PaidFeatureDashboard />} />
             <Route path="pricing" element={<PricingPage />} />
+            <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
       </Router>
