@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import store from "../src/data/redux/store";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Signup from "./pages/signup/Signup";
+import PaidFeatureDashboard from "./pages/dashboard/PaidFeatureDashboard";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
             <Route path="dashboard" element={<Dashboard />} />
+            <Route path="paiduserdashboard" element={<PaidFeatureDashboard />} />
           </Route>
         </Routes>
       </Router>
