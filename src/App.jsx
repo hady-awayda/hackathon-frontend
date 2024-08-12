@@ -7,12 +7,14 @@ import store from "../src/data/redux/store";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Signup from "./pages/signup/Signup";
 import Graph from "./pages/components/graph/Graph";
+import LogoAnimation from "./pages/components/booking/LogoAnimation";
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
         <Routes>
+          <Route path="logo" element={<LogoAnimation />} />
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
