@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {jwtDecode} from 'jwt-decode'; 
 import './dashboard.css';
 import Modal from '../components/modal/Modal.jsx';
 
@@ -7,9 +8,12 @@ const Dashboard = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedIdea, setSelectedIdea] = useState(null);
 
-  // Fetch ideas from local storage on component mount
   useEffect(() => {
-    const storedIdeas = JSON.parse(localStorage.getItem('ideas')) || [];
+    const token = localStorage.getItem('token');
+    const decodedToken = jwtDecode(token); 
+    const userEmail = decodedToken.email;
+
+    const storedIdeas = JSON.parse(localStorage.getItem(`ideas_${userEmail}`)) || [];
     setIdeas(storedIdeas);
   }, []);
 
@@ -30,9 +34,10 @@ const Dashboard = () => {
 
   const handleSaveIdea = async (formData) => {
     const token = localStorage.getItem('token');
+    const decodedToken = jwtDecode(token); 
+    const userEmail = decodedToken.email; 
 
     try {
-      // Create a copy of formData and exclude the ideaName
       const { ideaName, ...apiData } = formData;
 
       const response = await fetch('http://127.0.0.1:8000/api/v1/predict/random_forest_classifier', {
@@ -62,11 +67,12 @@ const Dashboard = () => {
         sentiment: formData.sentiment,
         successRate: successRate || 0,
         tips: tips || 'No tips available',
+        userEmail: userEmail, 
       };
 
       const updatedIdeas = [...ideas, newIdea];
       setIdeas(updatedIdeas);
-      localStorage.setItem('ideas', JSON.stringify(updatedIdeas));
+      localStorage.setItem(`ideas_${userEmail}`, JSON.stringify(updatedIdeas));
 
       setShowModal(false);
     } catch (error) {
@@ -75,9 +81,13 @@ const Dashboard = () => {
   };
 
   const handleDeleteIdea = (index) => {
+    const token = localStorage.getItem('token');
+    const decodedToken = jwtDecode(token); 
+    const userEmail = decodedToken.email; 
+
     const updatedIdeas = ideas.filter((_, i) => i !== index);
     setIdeas(updatedIdeas);
-    localStorage.setItem('ideas', JSON.stringify(updatedIdeas));
+    localStorage.setItem(`ideas_${userEmail}`, JSON.stringify(updatedIdeas)); 
   };
 
   return (

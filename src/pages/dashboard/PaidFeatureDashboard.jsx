@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Updated import
+import {jwtDecode} from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 import './dashboard.css';
 import PaidUserModal from '../components/modal/PaidUserModal.jsx';
 
@@ -16,11 +17,15 @@ const PaidFeatureDashboard = () => {
     average_sentiment_subjectivity: '',
   });
 
-  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+  const navigate = useNavigate(); 
 
-  // Load saved results from local storage
+
   useEffect(() => {
-    const storedResult = JSON.parse(localStorage.getItem('paidUserResult'));
+    const token = localStorage.getItem('token');
+    const decodedToken = jwtDecode(token); 
+    const userEmail = decodedToken.email;
+
+    const storedResult = JSON.parse(localStorage.getItem(`paidUserResult_${userEmail}`)); 
     if (storedResult) {
       setResult(storedResult);
     }
@@ -36,6 +41,8 @@ const PaidFeatureDashboard = () => {
 
   const handleSaveIdea = () => {
     const token = localStorage.getItem('token');
+    const decodedToken = jwtDecode(token); 
+    const userEmail = decodedToken.email; 
 
     fetch('http://127.0.0.1:8000/api/v1/predict/kmeans_classifier', {
       method: 'POST',
@@ -48,7 +55,7 @@ const PaidFeatureDashboard = () => {
       .then(response => response.json())
       .then(data => {
         setResult(data);
-        localStorage.setItem('paidUserResult', JSON.stringify(data));
+        localStorage.setItem(`paidUserResult_${userEmail}`, JSON.stringify(data));
         setShowModal(false);
       })
       .catch((error) => {
@@ -61,7 +68,7 @@ const PaidFeatureDashboard = () => {
   };
 
   const handleDetailsClick = () => {
-    navigate('/streamlit', { state: { data: result } }); // Use navigate instead of history.push
+    navigate('/streamlit', { state: { data: result } }); 
   };
 
   return (
