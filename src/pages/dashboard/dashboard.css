@@ -1,0 +1,118 @@
+body, html {
+  background-color: #292929 !important;
+}
+
+.idea-list {
+  padding: 20px;
+  margin: 0 40px; 
+}
+
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.table-header {
+  display: flex;
+  gap: 10px;
+  color: #bbb;
+  font-weight: 600;
+}
+
+.idea-col-header {
+  padding: 10px; 
+  background-color: transparent; 
+  text-align: left; 
+}
+
+.idea-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.idea-col {
+  padding: 10px;
+  background-color: #2e2e2e;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  text-align: left;
+}
+
+.idea-col.idea-name-col {
+  flex: 2;
+}
+
+.idea-col.success-rate-col {
+  width: 100px; 
+  text-align: center; 
+}
+
+.idea-col.tips-col {
+  flex: 1;
+}
+
+.idea-col:hover {
+  border: 1px solid #00B6D2;
+}
+
+.text-green-500 {
+  color: #22c55e;
+}
+
+.text-yellow-500 {
+  color: #eab308;
+}
+
+.text-red-500 {
+  color: #ef4444;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ff0000;
+  transition: color 0.3s ease;
+  padding: 0;
+  margin: 0; 
+}
+
+.delete-btn:hover {
+  color: #ff4d4d;
+}
+
+.bg {
+  background-color: #292929;
+}
+
+.mg{
+  margin-left: 790px;
+}
+
+.add-idea-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; 
+}
+
+.add-idea-btn {
+  width: 100%; 
+  max-width: 100%; 
+  background-color: transparent;
+  border: 2px solid #00B6D2;
+  color: #bbb;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+}
+
+.add-idea-btn:hover {
+  background-color: #00B6D2;
+  color: #fff;
+}
