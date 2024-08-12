@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import Signup from "./pages/signup/Signup";
 import Layout from "./pages/components/layout/Layout";
 import { Provider } from "react-redux";
-import store from "../src/redux/store"; // Adjust the path based on your project structure
+import store from "../src/data/redux/store";
+import Signup from "./pages/signup/Signup";
 
 function App() {
   return (
