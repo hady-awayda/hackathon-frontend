@@ -116,3 +116,7 @@ body, html {
   background-color: #00B6D2;
   color: #fff;
 }
+
+.databar:hover{
+  cursor: pointer;
+}

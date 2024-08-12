@@ -33,6 +33,7 @@
 
 .nav-links a:hover {
   color: #00d1ff;
+  cursor: pointer;
 }
 
 .auth-buttons .login {
@@ -55,4 +56,9 @@
 
 .auth-buttons .signup:hover {
   background-color: #00a5c8;
+  cursor: pointer;
+}
+
+.login:hover{
+cursor: pointer;
 }
