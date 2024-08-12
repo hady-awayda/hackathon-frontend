@@ -32,10 +32,13 @@ const Dashboard = ({ ideas = dummyIdeas, deleteIdea }) => {
   };
 
   const handleSaveIdea = (formData) => {
+    const token = localStorage.getItem('token'); // Retrieve the token from local storage
+
     fetch('http://127.0.0.1:8000/api/v1/predict/random_forest_classifier', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
       },
       body: JSON.stringify(formData),
     })
