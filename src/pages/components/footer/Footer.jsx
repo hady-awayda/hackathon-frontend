@@ -1,4 +1,10 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLinkedin,
+  faFacebook,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons"; // Use 'faXTwitter' for X icon
 import "./Footer.css";
 
 const Footer = () => {
@@ -29,14 +35,14 @@ const Footer = () => {
         <div className="footer-contact">
           <h3>Stay Connected</h3>
           <div className="social-icons">
-            <a href="#">
-              <img src="https://via.placeholder.com/24" alt="LinkedIn" />
+            <a href="#" className="social-icon">
+              <FontAwesomeIcon icon={faLinkedin} size="2x" color="#b0b0b0"/>
             </a>
-            <a href="#">
-              <img src="https://via.placeholder.com/24" alt="Twitter" />
+            <a href="#" className="social-icon">
+              <FontAwesomeIcon icon={faXTwitter} size="2x" color="#b0b0b0"/>
             </a>
-            <a href="#">
-              <img src="https://via.placeholder.com/24" alt="Facebook" />
+            <a href="#" className="social-icon">
+              <FontAwesomeIcon icon={faFacebook} size="2x" color="#b0b0b0" />
             </a>
           </div>
           <form className="subscribe-form">

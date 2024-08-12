@@ -55,10 +55,13 @@
 
 .footer-contact {
   max-width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start to ensure text is above icons */
 }
 
 .footer-contact h3 {
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* Reduce margin to bring the text closer to the icons */
   font-size: 18px;
   color: #ffffff;
 }
@@ -77,6 +80,7 @@
 .subscribe-form {
   display: flex;
   gap: 10px;
+  width: 100%; /* Ensure the input field takes up available space */
 }
 
 .subscribe-form input {
