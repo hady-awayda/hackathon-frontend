@@ -11,6 +11,10 @@ import PricingPage from "./pages/pricing/PricingPage";
 import Profile from "./pages/profile/Profile";
 import Graph from "./pages/components/graph/Graph";
 import LogoAnimation from "./pages/components/booking/LogoAnimation";
+import StreamlitPage from "./pages/dashboard/StreamlitPage";
+import ProtectedRoute from "./pages/components/protectedRoute";
+import AuthenticatedRoute from "./pages/components/authenticatedRoute"; // Import the AuthenticatedRoute component
+
 function App() {
   return (
     <Provider store={store}>
@@ -22,14 +26,54 @@ function App() {
             <Route path="home" element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="graph" element={<Graph />} />
+            <Route
+              path="dashboard"
+              element={
+                <AuthenticatedRoute>
+                  <Dashboard />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path="graph"
+              element={
+                <AuthenticatedRoute>
+                  <Graph />
+                </AuthenticatedRoute>
+              }
+            />
             <Route
               path="paiduserdashboard"
-              element={<PaidFeatureDashboard />}
+              element={
+                <ProtectedRoute requiredRole="paid">
+                  <PaidFeatureDashboard />
+                </ProtectedRoute>
+              }
             />
-            <Route path="pricing" element={<PricingPage />} />
-            <Route path="profile" element={<Profile />} />
+            <Route
+              path="pricing"
+              element={
+                <AuthenticatedRoute>
+                  <PricingPage />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path="profile"
+              element={
+                <AuthenticatedRoute>
+                  <Profile />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path="/streamlit"
+              element={
+                <AuthenticatedRoute>
+                  <StreamlitPage />
+                </AuthenticatedRoute>
+              }
+            />
           </Route>
         </Routes>
       </Router>

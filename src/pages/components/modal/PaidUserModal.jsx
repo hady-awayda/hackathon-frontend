@@ -2,7 +2,6 @@ import React from 'react';
 import './Modal.css';
 
 const PaidUserModal = ({ show, onClose, onSave, formData, handleChange }) => {
-
   const handleSubmit = () => {
     onSave(formData);
   };

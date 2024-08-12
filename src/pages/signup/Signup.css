@@ -42,11 +42,11 @@
 }
 
 .login-btn {
-  background-color: #00d1ff;
-  color: #ffffff;
+  background-color: transparent; /* Remove the background color from the login button */
+  color: #00d1ff; /* Change the text color to blue */
   padding: 10px 40px;
   border-radius: 8px;
-  border: none;
+  border: 1px solid #00d1ff; /* Add a blue border to the login button */
   cursor: pointer;
   font-size: 16px;
 }
